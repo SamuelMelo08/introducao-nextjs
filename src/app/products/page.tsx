@@ -13,10 +13,12 @@ export default function ListarProdutos() {
     return (
         <div>
             <h1>Lista de produtos</h1>
-            
-            {products.map(product => (
-                <p>Produto: {product.produto} Preço: {product.preco}</p>
-            ))}
+            <ul>
+
+                {products.map(product => (
+                    <li>Produto: {product.produto} Preço: {product.preco}</li>
+                ))}
+            </ul>
         </div>
 
     )
