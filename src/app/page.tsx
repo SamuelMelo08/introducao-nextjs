@@ -1,10 +1,13 @@
-import Wellcome from "@/components/Wellcome";
+import NavBar from "@/components/NavBar";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="">
-        <Wellcome/>
+
+      <NavBar names={["Inicio","Recursos","Contatos"]} links={['#','#','#']}/>
+      
+
     </div>
   );
 }
