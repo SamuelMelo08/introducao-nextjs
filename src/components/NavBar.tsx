@@ -3,6 +3,8 @@ import Image from "next/image"
 interface NavBarContent {
     names: string[]
     links: string[]
+    img: string
+    text: string
 }
 
 export default function NavBar(props:NavBarContent) {
@@ -15,19 +17,19 @@ export default function NavBar(props:NavBarContent) {
         
                       <div className="flex items-center">
                         <Image
-                          src="/nextjs-icon.svg"
+                          src={props.img}
                           alt="logo nextjs"
                           width={40}
                           height={40}
                         />
-                        <span className="ml-2 ">NextApp</span>
+                        <span className="ml-2 ">{props.text}</span>
                       </div>
         
                       <div className="flex space-x-4">
                         {
                             props.names.map((name, link) => (
                             
-                                <a className="text-lg font-medium hover:text-amber-700 hover:font-bold" href={props.links[link]}>
+                                <a className="text-lg font-medium hover:text-amber-700" href={props.links[link]}>
                                 {name}
                                 </a>
 

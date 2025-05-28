@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="">
 
-      <NavBar names={["Inicio","Recursos","Contatos"]} links={['#','#','#']}/>
+      <NavBar names={["Inicio","Recursos","Contatos"]} links={['#','#','#']} img="/nextjs-icon.svg" text="NextApp"/>
       
 
     </div>
