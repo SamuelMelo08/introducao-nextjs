@@ -17,8 +17,8 @@ export default function Home() {
 		<CardSection content={
 			[
 			{icon: "nextjs-icon.svg", title: "Titulo qualquer", subTitle: "Vou fazer um card ou já estou fazendo"},
-			{icon: "nextjs-icon.svg", title: "Titulo qualquer", subTitle: "Vou fazer um card ou já estou fazendo"},
-			{icon: "nextjs-icon.svg", title: "Titulo qualquer", subTitle: "Vou fazer um card ou já estou fazendo"}
+			{icon: "nextjs-icon.svg", title: "Outro Titulo qualquer", subTitle: "Vou fazer um card ou já estou fazendo"},
+			{icon: "nextjs-icon.svg", title: "Mais Titulo qualquer", subTitle: "Vou fazer um card ou já estou fazendo"}
 			
 			]
 			}/>
