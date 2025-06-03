@@ -1,6 +1,6 @@
 import NavBar from "@/components/NavBar";
-import Card from "@/components/Card";
-import CardSection from "@/components/Card";
+import Card from "@/components/CardSection";
+import CardSection from "@/components/CardSection";
 
 export default function Home() {
   return (
