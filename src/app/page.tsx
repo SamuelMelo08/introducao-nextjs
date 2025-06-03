@@ -1,5 +1,6 @@
 import NavBar from "@/components/NavBar";
-
+import Card from "@/components/Card";
+import CardSection from "@/components/Card";
 
 export default function Home() {
   return (
@@ -12,6 +13,16 @@ export default function Home() {
 				{label: 'Produtos', href: "/products"}
 			]
 			}/>
+		
+		<CardSection content={
+			[
+			{icon: "nextjs-icon.svg", title: "Titulo qualquer", subTitle: "Vou fazer um card ou já estou fazendo"},
+			{icon: "nextjs-icon.svg", title: "Titulo qualquer", subTitle: "Vou fazer um card ou já estou fazendo"},
+			{icon: "nextjs-icon.svg", title: "Titulo qualquer", subTitle: "Vou fazer um card ou já estou fazendo"}
+			
+			]
+			}/>
+		
 
     </div>
   );
