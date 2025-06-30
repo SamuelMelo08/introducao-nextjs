@@ -1,6 +1,7 @@
 import NavBar from "@/components/NavBar";
 import Card from "@/components/CardSection";
 import CardSection from "@/components/CardSection";
+import PlaceForm from "@/components/PlaceForm";
 
 export default function Home() {
   return (
@@ -22,7 +23,11 @@ export default function Home() {
 			
 			]
 			}/>
-		
+
+			<div className="flex justify-center" >
+				<PlaceForm/>
+			</div>
+			
 
     </div>
   );
