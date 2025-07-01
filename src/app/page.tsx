@@ -25,7 +25,7 @@ export default function Home() {
 			}/>
 
 			<div className="flex justify-center" >
-				<PlaceForm/>
+				<PlaceForm lat={22} lng={-22}/>
 			</div>
 			
 

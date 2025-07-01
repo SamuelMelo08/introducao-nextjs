@@ -9,24 +9,33 @@ const placeValidationSchema = z.object({
     type: z.enum(["restaurante", "bar", "hotel"]),
     phone: z.string().min(8, "Telefone inválido" ),
     lat: z.number(),
-    lbg: z.number(),
+    lng: z.number(),
 })
 
 
-type placeFormData = z.infer<typeof placeValidationSchema>
+type PlaceFormData = z.infer<typeof placeValidationSchema>
 
-export default function PlaceForm() {
+type Props = {
+    lat: number;
+    lng: number;
+}
+
+export default function PlaceForm({lat, lng} : Props) {
 
     const {
             register,
             handleSubmit,
             formState: {errors, isSubmitSuccessful}
 
-    } = useForm<placeFormData>({
-        resolver: zodResolver(placeValidationSchema)
+    } = useForm<PlaceFormData>({
+        resolver: zodResolver(placeValidationSchema),
+        defaultValues: {
+            lat,
+            lng
+        }
     })
 
-    const onSubmit = (data: placeFormData) => {
+    const onSubmit = (data: PlaceFormData) => {
         alert("Dados do local enviados!")
     }
 
@@ -44,7 +53,7 @@ export default function PlaceForm() {
                 className="w-full border rounded  px-2 py-1"
                 />
                 {errors.name && <p className="text-red-400" >
-                        {errors.name.message}
+                    {errors.name.message}
                 </p>}
 
             </div>
@@ -72,11 +81,33 @@ export default function PlaceForm() {
                 className="w-full border rounded  px-2 py-1"
                 />
                 {errors.phone && <p className="text-red-400" >
-                        {errors.phone.message}
+                    {errors.phone.message}
                 </p>}
 
             </div>
+
             {/* Latitude e Longitiude */}
+            <div>
+
+                <label>Latitude</label>
+                <input 
+                    value={lat}
+                    readOnly 
+                    className="border rounded px-2 py-1 bg-gray-100"
+                />
+
+            </div>
+
+            <div>
+
+                <label>Longitude</label>
+                <input 
+                    value={lng}
+                    readOnly 
+                    className="border rounded px-2 py-1 bg-gray-100"
+                />
+
+            </div>
 
             <button className="bg-amber-200 px-4 py-1 rounded  cursor-pointer hover:bg-amber-100" >
                 Registrar local
