@@ -2,7 +2,7 @@
 
 import { MapContainer, TileLayer, Marker, Popup, useMapEvent, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
-import L, { map } from 'leaflet'
+import { map, L } from 'leaflet'
 import { useState } from 'react'
 import PlaceForm from './PlaceForm'
 
