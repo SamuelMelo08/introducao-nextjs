@@ -1,7 +1,7 @@
 import NavBar from "@/components/NavBar";
-import Card from "@/components/CardSection";
 import CardSection from "@/components/CardSection";
 import PlaceForm from "@/components/PlaceForm";
+import Card from "@/components/Card";
 
 export default function Home() {
   return (
@@ -25,8 +25,12 @@ export default function Home() {
 			
 			]
 			}/>
-
 			
+			<div className="flex justify-center items-center">
+
+				<Card title="Esse é um card" description="Esse é um card que estou testando" imageUrl="/image.jpg" />
+
+			</div>
 
     </div>
   );
