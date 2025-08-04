@@ -11,7 +11,9 @@ export default function Home() {
 			[
 				{label: 'Inicio', href: "/"},
 				{label: 'Server Client', href: "/server-client"},
-				{label: 'Produtos', href: "/products"}
+				{label: 'Produtos', href: "/products"},
+				{label: 'Dogs', href: '/dogs'},
+				{label: 'Map', href: '/map'}
 			]
 			}/>
 		
@@ -24,9 +26,6 @@ export default function Home() {
 			]
 			}/>
 
-			<div className="flex justify-center" >
-				<PlaceForm lat={22} lng={-22}/>
-			</div>
 			
 
     </div>

@@ -2,7 +2,8 @@
 
 import { MapContainer, TileLayer, Marker, Popup, useMapEvent, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
-import { map, L } from 'leaflet'
+import { map} from 'leaflet'
+import L from 'leaflet'
 import { useState } from 'react'
 import PlaceForm from './PlaceForm'
 
@@ -78,8 +79,8 @@ export default function Map() {
 
                 <Popup>
                     <PlaceForm 
-                        lat={parseFloat(formPosition[0].toFixed(2))} 
-                        lng={parseFloat(formPosition[1].toFixed(2))} />
+                        lat={formPosition[0]} 
+                        lng={formPosition[1]} />
                 </Popup>
             </Marker>)}
 

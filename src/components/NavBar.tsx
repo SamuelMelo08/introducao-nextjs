@@ -11,9 +11,9 @@ export default function NavBar({links}:NavBarContent) {
 
     return (
         
-        <nav className="bg-amber-200 shadow-sm">
-            <div className="px-4 py-2">
-                <div className="flex justify-between h-16 items-center">
+        <nav className="bg-[#384257] shadow-sm">
+            <div className="px-4">
+                <div className="flex justify-between h-16 items-center ml-5">
         
                     {/* Logo */}
                     <div className="flex items-center">
@@ -22,17 +22,18 @@ export default function NavBar({links}:NavBarContent) {
                           alt="logo nextjs"
                           width={40}
                           height={40}
+                          className="bg-white rounded-full"
                         />
-                        <span className="ml-2 ">NextApp</span>
+                        <span className="ml-2 text-white">NextApp</span>
 
                     </div>
         
                     {/* Links */}
-                    <div className="flex space-x-4">
+                    <div className="flex space-x-10 mr-10 text-white">
                         {
                             links.map((link, indice) => (
 
-                                <a key={indice} className="text-lg font-medium hover:text-amber-700" href={link.href}>
+                                <a key={indice} className="text-lg font-medium hover:text-gray-500" href={link.href}>
                                 	{link.label}
                                 </a>
                                 

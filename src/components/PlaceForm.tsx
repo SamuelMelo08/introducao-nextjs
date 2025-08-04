@@ -3,6 +3,8 @@
 import { useForm } from "react-hook-form"
 import {z} from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { useState } from "react"
+import axios from "axios"
 
 const placeValidationSchema = z.object({
     name: z.string().min(3, "O nome é muito curto!"),
@@ -35,9 +37,46 @@ export default function PlaceForm({lat, lng} : Props) {
         }
     })
 
-    const onSubmit = (data: PlaceFormData) => {
-        alert("Dados do local enviados!")
+    const onSubmit = async (data: PlaceFormData) => {
+        
+        if(!images || images.length === 0 ) {
+            setSubmitError("Pelo menos um imagem deve ser enviada")
+            return
+        }
+
+        if (images.length > 3) {
+            setSubmitError("Você pode enviar no máximo 3 fotos")
+            return
+        }
+
+        const formData = new FormData();
+        formData.append("name", data.name)
+        formData.append("type", data.type)
+        formData.append("phone", data.phone)
+        formData.append("latitude", String(data.lat))
+        formData.append("longitude", String(data.lng))
+
+        Array.from(images).forEach((file) => {
+            formData.append("images", file)
+        })
+
+        try {
+            setLoading(true)
+
+            const response = await axios.post("", formData, 
+                {
+                    headers: {"Content-Type": "multipart/formData"}
+                })
+        } catch {
+
+        }
+    
+
     }
+
+    const [images, setImages] = useState<FileList | null>(null)
+    const [submitError, setSubmitError] = useState<String | null>(null)
+    const [loading, setLoading] = useState(false)
 
     return (
 
@@ -107,6 +146,16 @@ export default function PlaceForm({lat, lng} : Props) {
                     className="border rounded px-2 py-1 bg-gray-100"
                 />
 
+            </div>
+
+            <div>
+                <label>Imagens:</label>
+                <input 
+                multiple
+                type="file" 
+                accept="image/*"
+                onChange={(event) => setImages(event.target.files)}
+                />
             </div>
 
             <button className="bg-amber-200 px-4 py-1 rounded  cursor-pointer hover:bg-amber-100" >
