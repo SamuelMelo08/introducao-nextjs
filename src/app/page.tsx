@@ -54,7 +54,8 @@ export default function Home() {
 				{label: 'Server Client', href: "/server-client"},
 				{label: 'Produtos', href: "/products"},
 				{label: 'Dogs', href: '/dogs'},
-				{label: 'Map', href: '/map'}
+				{label: 'Map', href: '/map'},
+				{label: 'FeedBacks', href: '/feedbacks'}
 			]
 			}/>
 		
