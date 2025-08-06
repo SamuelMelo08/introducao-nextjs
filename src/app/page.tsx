@@ -2,6 +2,7 @@ import NavBar from "@/components/NavBar";
 import CardSection from "@/components/CardSection";
 import PlaceForm from "@/components/PlaceForm";
 import Card from "@/components/Card";
+import Counter from "@/components/Counter";
 
 export default function Home() {
 	
@@ -68,6 +69,10 @@ export default function Home() {
 			]
 			}/>
 
+			<div className="flex justify-center items-center m-10">
+				<Counter initial={0}/>
+			</div>
+
 			<div className="flex justify-center items-center">
 				<h1 className="font-bold text-[30px] text-[#576f2e]"> Catálogo de plantas e aves: </h1>
 			</div>
@@ -81,7 +86,8 @@ export default function Home() {
 
 
 			</div>
-
+			
+			
     </div>
   );
 }
