@@ -10,6 +10,26 @@ export default function LikeButton() {
     const [color, setColor] = useState("red")
     const [colorCount, setColorCount] = useState("white")
 
+    const colors = ["purple", "yellow", "blue", "cyan", "green", "pink", "orange"]
+
+    const handleCrazyHeart = () => {
+
+        colors.forEach((color, index) => {
+
+            setTimeout(() => {
+
+                setColor(color)
+
+            }, (index + 1) * 300)
+
+        })  
+
+        setTimeout(() => {
+        setColor("red")
+        }, (colors.length + 1) * 300)
+
+    }
+
     const handleHeart = () => {
 
         setHeart(70)
@@ -47,13 +67,20 @@ export default function LikeButton() {
 
             </div>
 
-            <div className="w-full h-1/4 flex justify-center items-center">
+            <div className="w-full h-1/4 flex justify-center items-center gap-3">
 
                 <button
                     className="bg-red-500 px-6 py-1 text-white rounded-[10px]"
                     onClick={() => {setLikeCount(likeCount + 1); handleHeart()}}
                 >
                     Like
+                </button>
+
+                <button
+                    className="bg-red-500 px-6 py-1 text-white rounded-[10px]"
+                    onClick={() => handleCrazyHeart()}
+                >
+                    Crazy Heart
                 </button>
 
             </div>
