@@ -20,7 +20,7 @@ export default function Counter(props: Props) {
 
                 <div className="w-full h-1/4 flex justify-center items-center relative">
 
-                    <h1 className="font-bold text-[20px]"> Contador </h1>
+                    <h1 className="font-bold text-[20px]"> Contador State </h1>
 
                     <button 
                     className="bg-[#e35b5b] px-4 py-1 rounded-[10px]  text-white text-[12px] absolute right-1 hover:bg-red-400 "
