@@ -7,30 +7,32 @@ export default function Calculator() {
 
     const [display, setDisplay] = useState<string>("")
 
+    const handleOperatorClick = (operator: string) => {
+
+        const operators = ["+", "-", "x", "/"]
+
+        const disableoperators = operators.filter((op) => op !== operator)
+        const hasAnotherOperator = disableoperators.some( (op) => display.includes(op) )
+
+        if (hasAnotherOperator) return
+
+        setDisplay(display + operator)
+
+
+    }
+
     const operationSearch = () => {
 
          if (display.includes("+")) {
-
-            if ( display.includes("-") || display.includes("x") || display.includes("/")) return
-
             sum()
 
         } else if (display.includes("-")) {
-
-            if ( display.includes("+") || display.includes("x") || display.includes("/")) return
-
             minos()
 
         } else if (display.includes("x")) {
-
-            if ( display.includes("-") || display.includes("+") || display.includes("/")) return
-
             multi()
 
         } else if (display.includes("/")) {
-
-            if ( display.includes("-") || display.includes("x") || display.includes("+")) return
-
             div()
 
         }
@@ -81,6 +83,18 @@ export default function Calculator() {
         const values = display.split("/")
         const numberValues = values.map((value) => parseFloat(value))
 
+        if (numberValues[0] === 0) {
+            setDisplay("0")
+            return
+        }
+        
+
+        if (numberValues.includes(0)) {
+            setDisplay("Divisão por 0")
+            return
+        }
+
+
         const result = numberValues.reduce((acumulation, currentValue) =>  acumulation / currentValue)
 
         setDisplay(String(result))
@@ -113,7 +127,7 @@ export default function Calculator() {
                     2
                 </button>
 
-                <button className="bg-[#434336] text-white p-2 rounded" onClick={() => setDisplay(display + "+")}>
+                <button className="bg-[#434336] text-white p-2 rounded" onClick={() => handleOperatorClick("+")}>
                     +
                 </button>
 
@@ -129,7 +143,7 @@ export default function Calculator() {
                     5
                 </button>
 
-                <button className="bg-[#434336] text-white p-2 rounded" onClick={() => setDisplay(display + "-")}>
+                <button className="bg-[#434336] text-white p-2 rounded" onClick={() => handleOperatorClick("-")}>
                     -
                 </button>
 
@@ -145,7 +159,7 @@ export default function Calculator() {
                     8
                 </button>
 
-                <button className="bg-[#434336] text-white p-2 rounded" onClick={() => setDisplay(display + "x")}>
+                <button className="bg-[#434336] text-white p-2 rounded" onClick={() => handleOperatorClick("x")}>
                     x
                 </button>
 
@@ -157,7 +171,7 @@ export default function Calculator() {
                     =
                 </button>
 
-                <button className="bg-[#434336] text-white p-2 rounded " onClick={() => setDisplay(display + "/")}>
+                <button className="bg-[#434336] text-white p-2 rounded " onClick={() => handleOperatorClick("/")}>
                     /
                 </button>
 
