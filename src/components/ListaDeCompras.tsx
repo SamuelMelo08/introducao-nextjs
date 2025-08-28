@@ -49,6 +49,7 @@ export default function ListaDeCompras({items}: Items) {
         }
 
     const handleAdd = () => {
+        if (addValue === "") return
 
         const item = {name: addValue, purchased: false}
 
@@ -82,7 +83,7 @@ export default function ListaDeCompras({items}: Items) {
                     <button onClick={() => handleAdd()} > <FaPlus size={15}/> </button>
                 </li>
 
-                {items ? 
+                {list.length > 0 ? 
                 (
                     
                     list.map((item, index) => (
@@ -102,7 +103,7 @@ export default function ListaDeCompras({items}: Items) {
 
                 ) : 
                 (
-                    <li>Não há nenhum item na lista.</li>
+                    <li className={`${add ? "hidden" : "block"} text-center`}>Não há nenhum item na lista.</li>
                 )}
 
             </ul>
